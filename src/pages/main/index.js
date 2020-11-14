@@ -1,13 +1,42 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ImageBackground, Image, TouchableOpacity } from 'react-native';
+
+import styles from './styles'
+
 
 export default function Main({ navigation }) {
+  async function handleNavigateContent() {
+    navigation.navigate('Content')
+  }
+
+  async function handleNavigateQuestion() {
+    navigation.navigate('Question')
+  }
+
+
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>PÁGINA INICIAL</Text>
-      
+    <View
+      style={styles.container}
+    >
+      <View
+        style={styles.options}
+      >
+        <TouchableOpacity
+          onPress={handleNavigateQuestion}
+        >
+          <Text>DESAFIOS</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={handleNavigateContent}
+        >
+          <Text>CONTEÚDOS</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
+
   );
 }
 
