@@ -19,24 +19,58 @@ export default function Main({ navigation }) {
     <View
       style={styles.container}
     >
-      <View
-        style={styles.options}
+      <ImageBackground
+        source={require('../../../assets/TELAS.png')}
+        style={styles.background}
       >
-        <TouchableOpacity
-          onPress={handleNavigateQuestion}
-        >
-          <Text>DESAFIOS</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={handleNavigateContent}
-        >
-          <Text>CONTEÚDOS</Text>
-        </TouchableOpacity>
-      </View>
 
+          <View style={styles.mapContainer}>
+            <Image
+              source={require('../../../assets/LOGO-V1.png')}
+              style={styles.brasilMap}
+              resizeMode='contain'
+            />
+          </View>
+
+
+          <View style={styles.questionTitle}>
+            <Text style={styles.questionTitleText}>Escolha o conteudo que deseja aprender !</Text>
+          </View>
+
+          <View style={styles.mapContainer2}>
+            <Image
+              source={require('../../../assets/MAPA-V2.png')}
+              style={styles.brasilMap}
+              resizeMode='contain'
+            />
+          </View>
+
+
+          <View style={styles.questionTitle2}>
+            <Text style={styles.questionTitleText2}>INVESTIMENTOS EM:</Text>
+            <Text style={styles.questionTitleText3}>MINERAÇÃO - TURISMO - AGRONEGÓCIOS - TECNOLOGIA - FINANCEIROS</Text>
+          </View>
+
+        <View
+          style={styles.cotFor}
+        >
+          <TouchableOpacity
+            onPress={handleNavigateQuestion}
+          >
+            <Text style={styles.btnInov} >DESAFIOS</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            onPress={handleNavigateContent}
+          >
+            <Text style={styles.btnInov2} >CONTEÚDOS</Text>
+          </TouchableOpacity>
+        </View>
+
+
+        </ImageBackground>
     </View>
-
   );
 }
 

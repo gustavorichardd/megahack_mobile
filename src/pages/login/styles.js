@@ -31,8 +31,13 @@ export default StyleSheet.create({
   },
 
   logoContainer: {
-    width: 200,
-    height: 50
+    width: 300,
+    height: 120,
+    marginBottom: 25,
+  },
+  Ct2:{
+    width: 230,
+    height: 80,
   },
   logo: {
     height: '100%',
@@ -112,31 +117,34 @@ export default StyleSheet.create({
 
   },
   questionText: {
-    fontSize: 25,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#FFF',
     backgroundColor: '#4cbdc2',
-    width: 290,
+    width: 300,
     height: 35,
     borderRadius: 20,
     textAlign: 'center',
     marginTop: 10,
     marginBottom: 30,
+    paddingTop: 4,
 
   },
   questionAsk: {
     color: '#4cbbc3',
+    alignItems: 'center',
+    marginLeft: 150,
   },
 
   inputUser: {
     width: 300,
     height: 45,
-    backgroundColor: '#4cbdc2',
+    backgroundColor: '#FFF',
     marginTop: 10,
-    color: '#FFF',
+    color: '#000',
     paddingLeft: 10,
   },
-
+  
 
 
 
