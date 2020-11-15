@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, Text, ImageBackground, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
 import styles from './styles'
+import api from '../../services/api'
 
 export default function Content({ navigation }) {
+  const [content, setContent] = useState({})
+
+  async function loadContent() {
+    const valor = await api.get('/contents')
+
+    let min = Math.ceil(0);
+    let max = Math.floor(valor.data.length);
+
+    const index = Math.floor(Math.random() * (max - min)) + min
+
+    setContent(valor.data[index])
+  }
+  useEffect(() => {
+    loadContent()
+  }, [])
+
 
   async function handleChallange() {
     navigation.navigate('Question')
@@ -39,11 +56,11 @@ export default function Content({ navigation }) {
         </View>
 
         <SafeAreaView style={styles.contentArea} >
-          
-          <Text style={styles.contentTitle}>Esse é o primeiro conteúdo</Text>
-          
+
+          <Text style={styles.contentTitle}>{content.title}</Text>
+
           <ScrollView>
-            <Text style={styles.contentText}>Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. Ainda assim, existem dúvidas a respeito de como a complexidade dos estudos efetuados faz parte de um processo de gerenciamento dos conhecimentos estratégicos para atingir a excelência. </Text>
+            <Text style={styles.contentText}>{content.description}</Text>
           </ScrollView>
 
 

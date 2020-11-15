@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
-import { View, Text, ImageBackground, Image, TouchableOpacity, SafeAreaView, ScrollView } from 'react-native'
-import CheckBox from '@react-native-community/checkbox';
+import React, { useState, useEffect } from 'react'
+import { View, Text, ImageBackground, Image, TouchableOpacity } from 'react-native'
 import RadioButtonRN from 'radio-buttons-react-native';
+
+import api from '../../services/api'
 import styles from './styles'
 
 export default function Question({ navigation }) {
+  
+  const [questions, setQuestions] = useState({})
 
-  const [toggleCheckBox, setToggleCheckBox] = useState(false)
+  async function loadUserQuestions() {
+    const valor = await api.get('/questions', {
+      params: {
+        cpf
+      }
+    })
+
+    console.log(valor.data)
+
+    //setQuestions(valor.data)
+  }
+  useEffect(() => {
+    loadUserQuestions()
+  }, [])
 
   const data = [
     {
@@ -60,7 +76,7 @@ export default function Question({ navigation }) {
             <RadioButtonRN
               circleSize={20}
               data={data}
-              selectedBtn={(e) => console.log(e)}
+              selectedBtn={() => { }}
               deactiveColor='#0c354c'
               activeColor='#52bcc1'
               boxActiveBgColor='#52bcc1'
