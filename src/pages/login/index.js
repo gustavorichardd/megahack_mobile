@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 import api from '../../services/api'
+import styles from './styles'
 
 
 export default function Login({ navigation }) {
@@ -41,7 +42,9 @@ export default function Login({ navigation }) {
   }
 
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
+
+      
       <TextInput
         placeholder="USERNAME"
         value={login}
@@ -49,6 +52,7 @@ export default function Login({ navigation }) {
         textContentType='emailAddress'
         keyboardType='email-address'
         autoCapitalize="none"
+        style={styles.inputUser}
       />
       <TextInput
         placeholder="PASSWORD"
@@ -57,13 +61,17 @@ export default function Login({ navigation }) {
         textContentType='password'
         secureTextEntry={true}
         autoCapitalize="none"
+        style={styles.inputUser}
       />
+
+      <View >
       <TouchableOpacity onPress={handleSubmit}>
-        <Text>LOGIN</Text>
+        <Text style={styles.questionText} >LOGIN</Text>
       </TouchableOpacity>
+      </View>
 
       <TouchableOpacity>
-        <Text>Esqueceu sua senha?</Text>
+        <Text style={styles.questionAsk}>Esqueceu sua senha?</Text>
       </TouchableOpacity>
 
     </View>
